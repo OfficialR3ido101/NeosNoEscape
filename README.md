@@ -1,6 +1,10 @@
 # NoEscape
 
-A [NeosModLoader](https://github.com/zkxs/NeosModLoader) mod for [Neos VR](https://neos.com/) that disables the emergency respawn gesture.
+A [NeosModLoader](https://github.com/zkxs/NeosModLoader) mod for [Neos VR](https://neos.com/) that can disable the emergency respawn / disconnect gesture based on a bunch of settings.
+
+The disabling can be turned on and off completely, and also remotely controlled via a cloud variable.
+It can be configured when the controller vibrations stop to indicate that the respawn won't happen.
+Also, disabling emergency disconnect can be separately disabled, and an override time can be set, after which the gestures will trigger even when otherwise disabled.
 
 ## Installation
 1. Install [NeosModLoader](https://github.com/zkxs/NeosModLoader).
