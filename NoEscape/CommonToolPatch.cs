@@ -1,28 +1,30 @@
-﻿using BaseX;
+﻿using ResoniteModLoader;
+using Elements.Core;
 using FrooxEngine;
 using HarmonyLib;
 using System.Runtime.CompilerServices;
 
 namespace NoEscape
 {
-    [HarmonyPatch(typeof(CommonTool))]
+    [HarmonyPatch(typeof(InteractionHandler))]
     internal static class CommonToolPatches
     {
-        private static readonly ConditionalWeakTable<CommonTool, ToolData> toolDataTable = new ConditionalWeakTable<CommonTool, ToolData>();
+        private static readonly ConditionalWeakTable<Tool, ToolData> toolDataTable = new ConditionalWeakTable<Tool, ToolData>();
 
         [HarmonyPrefix]
         [HarmonyPatch("HoldMenu")]
-        private static void HoldMenuPrefix(CommonTool __instance, ref float ___panicCharge)
+        private static void HoldMenuPrefix(Tool __instance, ref float ___panicCharge)
         {
             NoEscape.PollRespawnCloudVariable(__instance);
             var toolData = toolDataTable.GetOrCreateValue(__instance);
 
             var panicCharge = toolData.PanicCharge;
             toolData.PanicCharge += __instance.Time.Delta;
+            InteractionHandler ___Inputs = new InteractionHandler();
             // Allow changing to disconnect instead of respawn only until the regular 2s are over.
-            toolData.IsDisconnect = !(__instance.Inputs.Grab.Held || __instance.OtherTool.Inputs.Grab.Held);
+            toolData.IsDisconnect = !(___Inputs.Inputs.Grab.Held || ___Inputs.OtherTool.Inputs.Grab.Held);
 
-            if (!isRespawnGesture(__instance) || NoEscape.RespawnAllowed || (NoEscape.DisconnectAllowed && toolData.IsDisconnect))
+            if (!isRespawnGesture(___Inputs) || NoEscape.RespawnAllowed || (NoEscape.DisconnectAllowed && toolData.IsDisconnect))
             {
                 if (toolData.PanicCharge >= 2)
                     ___panicCharge = toolData.PanicCharge;
@@ -44,7 +46,7 @@ namespace NoEscape
                 toolData.PanicCharge = float.MinValue;
         }
 
-        private static bool isRespawnGesture(CommonTool tool)
+        private static bool isRespawnGesture(InteractionHandler tool)
         {
             return tool.World == Userspace.UserspaceWorld
                 && tool.IsNearHead && tool.OtherTool != null && tool.Side.Value == Chirality.Left
@@ -53,7 +55,7 @@ namespace NoEscape
 
         [HarmonyPostfix]
         [HarmonyPatch("StartMenu")]
-        private static void StartMenuPostfix(CommonTool __instance)
+        private static void StartMenuPostfix(Tool __instance)
         {
             toolDataTable.GetOrCreateValue(__instance).PanicCharge = 0;
         }

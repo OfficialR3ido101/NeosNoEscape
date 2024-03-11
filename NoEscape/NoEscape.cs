@@ -1,9 +1,9 @@
-﻿using CloudX.Shared;
-using FrooxEngine;
-using FrooxEngine.LogiX;
+﻿using FrooxEngine;
+using FrooxEngine.ProtoFlux;
 using HarmonyLib;
-using NeosModLoader;
+using ResoniteModLoader;
 using System;
+using SkyFrost.Base;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace NoEscape
 {
-    public partial class NoEscape : NeosMod
+    public partial class NoEscape : ResoniteMod
     {
         [AutoRegisterConfigKey]
         private static readonly ModConfigurationKey<string> AvatarCloudVariablePathKey = new ModConfigurationKey<string>("AvatarCloudVariablePath", "Cloud Variable Path to check for Avatar enforcement. Default value is just a broadcast variable with the Transforming Davali.", () => "U-Banane9.EnforcedAvatar", valueValidator: CloudVariableHelper.IsValidPath);

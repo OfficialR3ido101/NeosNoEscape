@@ -9,9 +9,10 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>NoEscape</RootNamespace>
     <AssemblyName>NoEscape</AssemblyName>
-    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -32,7 +33,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="0Harmony">
-      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\NeosVR\0Harmony.dll</HintPath>
+      <HintPath>..\..\..\SteamLibrary\steamapps\common\Resonite\rml_libs\0Harmony.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="BaseX">
@@ -46,13 +47,22 @@
       <HintPath>C:\Program Files (x86)\Steam\steamapps\common\NeosVR\Neos_Data\Managed\CodeX.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Elements.Core">
+      <HintPath>..\..\..\SteamLibrary\steamapps\common\Resonite\Tools\AccountDump\Elements.Core.dll</HintPath>
+    </Reference>
     <Reference Include="FrooxEngine">
-      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\NeosVR\Neos_Data\Managed\FrooxEngine.dll</HintPath>
+      <HintPath>..\..\..\SteamLibrary\steamapps\common\Resonite\Resonite_Data\Managed\FrooxEngine.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="NeosModLoader">
       <HintPath>C:\Program Files (x86)\Steam\steamapps\common\NeosVR\Libraries\NeosModLoader.dll</HintPath>
       <Private>False</Private>
+    </Reference>
+    <Reference Include="ResoniteModLoader">
+      <HintPath>..\..\..\SteamLibrary\steamapps\common\Resonite\Libraries\ResoniteModLoader.dll</HintPath>
+    </Reference>
+    <Reference Include="SkyFrost.Base">
+      <HintPath>..\..\..\SteamLibrary\steamapps\common\Resonite\Tools\AccountDump\SkyFrost.Base.dll</HintPath>
     </Reference>
     <Reference Include="System" />
   </ItemGroup>
