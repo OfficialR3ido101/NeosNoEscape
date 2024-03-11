@@ -3,6 +3,8 @@ using HarmonyLib;
 using System;
 using System.Collections.Generic;
 using System.Reflection.Emit;
+using SkyFrost.Base;
+using SkyFrost;
 
 namespace NoEscape
 {
@@ -13,7 +15,7 @@ namespace NoEscape
         [HarmonyPatch("OnItemSelected")]
         private static IEnumerable<CodeInstruction> OnItemSelectedTranspiler(IEnumerable<CodeInstruction> codeInstructions)
         {
-            var getBoltMethod = typeof(NeosAssets.Common.Icons).GetProperty("Bolt", AccessTools.allDeclared).GetMethod;
+            var getBoltMethod = typeof(OfficialAssets.Common.Icons).GetProperty("Bolt", AccessTools.allDeclared).GetMethod;
             var itemField = typeof(InventoryItemUI).GetField("Item", AccessTools.allDeclared);
             var getUrlMethod = typeof(Record).GetProperty("URL", AccessTools.allDeclared).GetMethod;
 

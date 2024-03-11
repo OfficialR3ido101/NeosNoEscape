@@ -36,26 +36,14 @@
       <HintPath>..\..\..\SteamLibrary\steamapps\common\Resonite\rml_libs\0Harmony.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="BaseX">
-      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\NeosVR\Neos_Data\Managed\BaseX.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="CloudX.Shared">
-      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\NeosVR\Neos_Data\Managed\CloudX.Shared.dll</HintPath>
-    </Reference>
-    <Reference Include="CodeX">
-      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\NeosVR\Neos_Data\Managed\CodeX.dll</HintPath>
-      <Private>False</Private>
+    <Reference Include="Elements.Assets">
+      <HintPath>..\..\..\SteamLibrary\steamapps\common\Resonite\Tools\AccountDump\Elements.Assets.dll</HintPath>
     </Reference>
     <Reference Include="Elements.Core">
       <HintPath>..\..\..\SteamLibrary\steamapps\common\Resonite\Tools\AccountDump\Elements.Core.dll</HintPath>
     </Reference>
     <Reference Include="FrooxEngine">
       <HintPath>..\..\..\SteamLibrary\steamapps\common\Resonite\Resonite_Data\Managed\FrooxEngine.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="NeosModLoader">
-      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\NeosVR\Libraries\NeosModLoader.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="ResoniteModLoader">

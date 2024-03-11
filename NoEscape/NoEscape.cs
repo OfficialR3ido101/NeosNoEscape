@@ -1,9 +1,10 @@
 ﻿using FrooxEngine;
-using FrooxEngine.ProtoFlux;
 using HarmonyLib;
 using ResoniteModLoader;
 using System;
 using SkyFrost.Base;
+using Elements.Assets;
+using Elements.Core;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -120,6 +121,8 @@ namespace NoEscape
 
         private void OnConfigurationChanged(ConfigurationChangedEvent configurationChangedEvent)
         {
+            UserProfile __Profile = new UserProfile();
+            Uri __userIcon = new Uri(__Profile.IconUrl);
             if (configurationChangedEvent.Key.Equals(RespawnCloudVariablePathKey))
                 updateRespawnCloudProxy();
             else if (configurationChangedEvent.Key.Equals(EnforcedAvatarKey) || configurationChangedEvent.Key.Equals(AvatarCloudVariablePathKey))
@@ -129,7 +132,7 @@ namespace NoEscape
                     if (EnableAvatarCloudVar)
                         PollAvatarCloudVariable();
                     else if (EnforcedAvatar != null)
-                        Engine.Current.Cloud.Profile.ActiveAvatarUrl = EnforcedAvatar;
+                        __userIcon = EnforcedAvatar;
                 }
             }
         }
